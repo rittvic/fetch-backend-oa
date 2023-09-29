@@ -82,3 +82,18 @@ You can also run tests.
 ```
 python test.py
 ```
+
+## Making Request Calls
+Once the server is up and running, you can make POST and GET requests to the following endpoints:
+- `/add` POST
+```
+curl -X POST -H "Content-Type: application/json" -d '{"payer": "MILLER COORS", "points": 10000, "timestamp": "2022-11-01T14:00:00Z"}' http://127.0.0.1:8000/add
+```
+- `/spend` POST
+```
+curl -X POST -H "Content-Type: application/json" -d '{ "points": 5000 }' http://127.0.0.1:8000/spend
+```
+- `/balance` GET
+```
+curl -X GET http://127.0.0.1:8000/balance
+```
