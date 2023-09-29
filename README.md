@@ -2,8 +2,8 @@
 This is my submission for the [Fetch Backend Internship Challenge](https://fetch-hiring.s3.us-east-1.amazonaws.com/points-intern.pdf) OA
 
 There are two components:
-1. Flask application
-2. Unit test
+1. Flask server application - it is set up to listen on port 8000 and all addresses (0.0.0.0) with debug enabled.
+2. Tests - I have written a few tests, including the example from the specification.
 
 # Local Testing
 To get a local copy of the Flask server app up and running for testing purposes, see below:
@@ -24,7 +24,25 @@ git clone https://github.com/rittvic/fetch-backend-oa.git
 Make sure your current directory is the root directory of the repository.
 ### With Docker
 
-To be filled
+<b> Building the image</b>
+
+With `Dockerfile`, you can build a local image. If you're in the same directory, you can use `.` instead of the full path to the Dockerfile.
+You can also replace `image-name` with desired image name.
+   ```
+   docker build -t image-name .
+   ```
+<b> Running the image </b>
+
+After the image is built, you can run now the image, which will run the Flask server on port 8000 in the Docker container. 
+You will need to bind the port to the local 8000 port to be able to send requests from local machine.
+```
+docker run -p 8000:8000 image-name
+```
+
+You can also run tests by simply appending `python test.py` 
+```
+docker run -p 8000:8000 image-name python test.py
+```
 
 ### Without Docker
 
@@ -55,12 +73,12 @@ To be filled
    
 #### Running
 
-You can now run the Flask server. It is set up to listen on port 8000 and all addresses (0.0.0.0) with debug enabled.
+You can now run the Flask server.
 ```
 python server.py
 ```
 
-You can also run tests. Currently, I have written one test with examples from the specification.
+You can also run tests.
 ```
 python test.py
 ```
