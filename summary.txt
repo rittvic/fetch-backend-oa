@@ -4,6 +4,10 @@ Since I had a short timeframe to complete the exercise, I decided to go with Pyt
 web framework because Flask is designed for a quick and easy setup on the spot. I also have some prior experience with Flask as I used it
 in my previous internship at UW-SSEC; I was responsible for building the backend of an image viewer dashboard.
 
+In addition, I am using dateutil library so that I can parse the timestamp field in transactions as a datetime object, which
+would be used to determine priorities in the min heap data structure that stores transactions. That way, I can retrieve the "earliest"
+transactions based on the timestamp.
+
 2. What are the advantages and disadvantages of your solution?
 
 Even though it is out of the scope of the exercise, an advantage of my solution is that you can have multiple user accounts
