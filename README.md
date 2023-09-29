@@ -8,11 +8,13 @@ There are two components:
 # Local Testing
 To get a local copy of the Flask server app up and running for testing purposes, see below:
 
+Note: Please feel free to message me if the instructions are not working.
+
 ## Prerequisites
 If you prefer using [Docker](https://www.docker.com/), you do not need to do anything else.
 <br><br>
 Otherwise if you do not want to use Docker, you will need one of the following package managers installed:
-- [Mamba/Condaforge](https://mamba.readthedocs.io/en/latest/mamba-installation.html)
+- [Mambaforge](https://mamba.readthedocs.io/en/latest/mamba-installation.html)
 - [pip](https://pypi.org/project/pip/)
 ## Installation
 1. Clone the repo:
@@ -26,7 +28,7 @@ To be filled
 
 ### Without Docker
 
-#### If you are using Mamba/Condaforge
+<b>If you are using Mambaforge</b>
 
 1. Create an environment with `environment.yaml` file for required dependencies. You can replace `myenv` with the desired environment name.
     ```
@@ -37,14 +39,14 @@ To be filled
     mamba activate myenv
     ```
 
-#### if you are using pip
-1. Create a virtual environment
+<b>if you are using pip</b>
+1. Create a virtual environment. You can replace `myenv` with the desired environment name
     ```
-    python -m venv venv
+    python -m venv myenv
     ```
 2. Activate the new virtual environment
     ```
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    source myenv/bin/activate  # On Windows, use `myenv\Scripts\activate`
     ```
 3. Install the required dependencies from `requirements.txt`
     ```
