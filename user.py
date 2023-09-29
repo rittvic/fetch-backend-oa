@@ -64,7 +64,7 @@ class User:
         # store any transactions that must be skipped due to insufficient payer balance
         retained_transactions = []
 
-        # no processing is needed if points to spend is 0
+        # no processing is needed if points to spend is 0 or less
         if points <= 0:
             return [{"payer" : payer_name, "points" : 0} for payer_name in self.payer_balances.keys()]
 

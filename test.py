@@ -10,14 +10,7 @@ class Test(unittest.TestCase):
         app.config['TESTING'] = True
         self.client = app.test_client()
 
-    def tearDown(self):
-        # Clean up any resources, if needed
-        pass
-
-    def test_1(self):
-        """
-        Test each endpoint with the example data from the OA specification file
-        """
+    def test_add(self):
         # Test /add endpoint with 5 requests
         add_transactions = [
             {"payer": "DANNON", "points": 300, "timestamp": "2022-10-31T10:00:00Z"},
@@ -31,6 +24,8 @@ class Test(unittest.TestCase):
             response = self.client.post("/add", json=transaction_data)
             self.assertEqual(response.status_code, 200)
 
+
+    def test_spend(self):
         # Test /spend endpoint with 5000 points in a single request
         print(f"Sending /spend POST request: {{'points':5000}}")
         response = self.client.post("/spend", json={"points":5000})
@@ -43,6 +38,7 @@ class Test(unittest.TestCase):
         for data in expected_data:
             self.assertIn(data, response.get_json())
 
+    def test_balance(self):
         # Test /balance endpoint with a single request
         print("Sending /balance GET request")
         response = self.client.get("/balance")
@@ -54,7 +50,6 @@ class Test(unittest.TestCase):
         }
         for data in expected_data:
             self.assertIn(data, response.get_json())
-
 
 if __name__ == '__main__':
     unittest.main()
