@@ -1,0 +1,39 @@
+1. Why did you choose the tools, libraries, and language you used for the coding exercise?
+
+Since I had a short timeframe to complete the exercise, I decided to go with Python as the language and Flask as the
+web framework because Flask is designed for a quick and easy setup on the spot. I also have some prior experience with Flask as I used it
+in my previous internship at UW-SSEC; I was responsible for building the backend of an image viewer dashboard.
+
+2. What are the advantages and disadvantages of your solution?
+
+Even though it is out of the scope of the exercise, an advantage of my solution is that you can have multiple user accounts
+in the system since I created a User class for it. The class maintains the total balance, a transaction system where you can add and process transactions, and points per payer map.
+I also have a method for each endpoint of the API (add, spend, balance), so that makes it easier to read the code and narrow down if needed.
+
+Another advantage is that I am using a min heap data structure for storing transactions, which makes it optimal for retrieving
+the "earliest" transaction based on the timestamp. The time complexity for insertion and removal operations is O(Log N).
+
+However, a potential disadvantage of my solution is that any transaction that are "skipped" during the processing would have to be re-inserted
+into the min heap, which can be slight overhead if you're dealing with hundreds and hundreds of transactions for spending points.
+
+3. What has been a favorite school/personal project thus far? What about it that challenged you?
+
+So far, my favorite personal project would be the school chatbot that is currently used by over 2,000 UW-Madison students.
+I am proud to have made a positive impact since I provide students quick access to numerous campus information like
+classes, GPA trends, professor ratings, dining menus, and so on.
+
+I have also picked up tools such as:
+- PostgreSQL: To store thousands and thousands of classes since they only change on a semester basis
+- BeautifulSoup: To webscrape data from multiple sources and aggregate them
+- HikariCP: A lightweight, fast pooling framework for the database so that I can use connections per calls and not have to worry about slowing down
+- Docker: To containerize the chatbot and database, allowing for easy deployments on any infrastructure
+
+A big challenge that I faced when developing the bot is multi-threading so that students can call commands simultaneously
+without having to wait for a long time. To do this, I did a lot of research into how multi-threading works,
+especially in the context of Java in regard to completeable futures and executor pools. I also reviewed best practices
+from other repositories so that it is implemented optimally. Eventually I wrapped each command run under a new thread to
+a "main" queue that would process threads as soon as they are finished. I also set up the queue to automatically scale
+based on the number of current threads with a limit and timeout.
+
+Overall, this project has been a fun experience, and it is still ongoing as I find new features to add, and bugs to squash based on
+user feedback.
